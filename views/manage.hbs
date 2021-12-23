@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>ATN Company Management System</title>
+</head>
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/add">Add product</a></li>
+        <li><a href="/manage">Manage product</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+    <center>
+        <form class="frm123" action="/search" method="POST">
+            <fieldset>
+                <legend> Search Product </legend>
+                <input type="text" name="txtName" required maxlength="100" placeholder="Input name"> <br> <br>
+                <input type="submit" value="Search" name="search">
+            </fieldset>
+        </form>
+    </center>
+    <br><br>
+    <center>
+    <class="widget-content">
+            <table class="table table-striped table-bordered" border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Introduction</th>
+                    <th width="350px">Picture</th>
+                    <th>Price</th>
+                    <th class="td-actions" width="150px">Options</th>
+                </tr>
+            </thead>
+                {{#each product}}
+                <tr>
+                    <td style="width: 250px;">{{name}}</td>
+                    <td>{{introduction}}</td>
+                    <td><img src='/{{picture.id}}' alt="{{picture.id}}" width="350px" height="300px"></td>
+                    <td>{{price}}</td>
+                    <td class="td-actions">
+                        <a class="btn btn-small btn-primary" href="/update?id={{_id}}"> Edit </a>
+                        <a href="/delete?id={{_id}}" class="btn btn-danger btn-xs"> Delete </a>
+                    </td> 
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+    </center>
+</body>
+</html>

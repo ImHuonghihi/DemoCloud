@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<title>ATN Company Edit Page</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<style>
+</style>
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/add">Add product</a></li>
+        <li><a href="/manage">Manage product</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+    <center>
+        <form class="frm123" action="/doEdit" enctype="multipart/form-data" method="POST">
+            <fieldset>
+                <legend> Edit product </legend>
+                <input type="hidden" required maxlength="100" size="35"
+                    name="id" value="{{product._id}}"> 
+                Name: <input type="text" required maxlength="100" size="35"
+                    name="name" value="{{product.name}}"> <br> <br>
+                Introduction: <input type="text" maxlength="100" size="12"
+                    name="introduction" value="{{product.introduction}}"> <br> <br>
+                Picture: <img src='/{{product.picture.id}}' alt="{{product.picture.id}}" width="250px" height="200px"><br>
+                    <input type="file" name="picture" accept="image/*" > <br> <br>
+                Price: <input type="text" required maxlength="100" size="12"
+                    name="price" value="{{product.price}}"> <span class="error">{{editError}}</span><br> <br>
+                <input type="submit" value="Update" name="update">
+            </fieldset>
+        </form>
+    </center>
+</body>
+</html>
