@@ -15,18 +15,22 @@ app.set('view engine', 'hbs')
 const multer = require('multer');
 const fs = require('fs-extra');
 
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 
-var storage = multer.diskStorage({
+//lưu trữ file khi đã upload
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-    cb(null, 'uploads')
+        //file sau khi upload xong sẽ nằm trong "uploads"
+        cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now())
+        //tạo tên file = time hiện tại
+        cb(null, file.fieldname + '-' + Date.now())
     }
 })
     
-var upload = multer({ storage: storage })
+//khởi tạo middleware với câu hình trên, lưu trên local của server khi dùng multer
+const upload = multer({ storage: storage })
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(express.static('public'))
@@ -88,13 +92,15 @@ app.post('/doEdit',upload.single('picture'), async(req,res)=>{
     if(price.trim().length == 0 || isFinite(price) == false){
         const condition = dbHandler.find(id);
         const productToEdit = await dbHandler.findOneProduct("Product", condition);
-        res.render('edit', {product:productToEdit, editError: 'gia phai la so'})
+        res.render('edit', {product:productToEdit, editError: 'Price must is number'})
     }else{
         if(!req.file){
             newValues ={$set : {name: name, introduction: introduction, price:price}};
         }
         else{
+            //đọc file ảnh từ bộ nhớ
             var img = fs.readFileSync(req.file.path);
+            //mã hóa dạng chuỗi base64
             var encode_image = img.toString('base64');
             var finalImg = {
                 id: req.file.filename,
