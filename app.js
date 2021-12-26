@@ -131,7 +131,7 @@ app.post('/insert',upload.single('picture'), async(req,res)=>{
         image:  new Buffer.from(encode_image, 'base64')
         };
     if(price.trim().length == 0 || isFinite(price) == false){
-        res.render('add', {addError: 'gia phai la so'})
+        res.render('add', {addError: 'Price must is number!'})
     }else{
         var newproduct = {name: name, introduction: introduction, picture:finalImg, price:price};
         await dbHandler.insertOneIntoCollection("Product", newproduct);
@@ -151,8 +151,8 @@ app.get('/register',(req,res)=>{
 app.post('/doRegister',async (req,res)=>{
     const nameInput = req.body.name;
     const passInput = req.body.password;
-    if(passInput.length< 8){
-        res.render('register', {passError: 'Password phai tu 8 ki tu tro len'})
+    if(passInput.length < 10){
+        res.render('register', {passError: 'Password must  more than 10 characters'})
     }
     const newUser = {username:nameInput,password:passInput};
     await dbHandler.insertOneIntoCollection("users", newUser);
