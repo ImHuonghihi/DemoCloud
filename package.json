@@ -1,12 +1,12 @@
 {
-  "name": "asmfoder",
+  "name": "new file",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "lan anh",
+  "author": "Lan Huong",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.1",
