@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         //tạo tên file = time hiện tại
         cb(null, file.fieldname + '-' + Date.now())
-        // 123
+   
     }
 })
     
