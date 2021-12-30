@@ -1,30 +1,31 @@
-{
-  "name": "newfile",
-  "version": "1.0.0",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "author": "Lan Huong",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.1",
-    "express": "^4.17.2",
-    "express-session": "^1.17.2",
-    "fs-extra": "^10.0.0",
-    "hbs": "^4.2.0",
-    "mongodb": "^3.7.3",
-    "multer": "^1.4.4",
-    "nodemon": "^2.0.15"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/huongpham2001/ASM2-main.git"
-  },
-  "bugs": {
-    "url": "https://github.com/huongpham2001/ASM2-main/issues"
-  },
-  "homepage": "https://github.com/huongpham2001/ASM2-main#readme",
-  "description": ""
-}
+// {
+//   "name": "newfile",
+//   "version": "1.0.0",
+//   "main": "app.js",
+//   "scripts": {
+//     "test": "echo \"Error: no test specified\" && exit 1",
+//     "start": "node app.js"
+//   },
+//   "author": "Lan Huong",
+//   "license": "ISC",
+//   "dependencies": {
+//     "body-parser": "^1.19.1",
+//     "express": "^4.17.2",
+//     "express-session": "^1.17.2",
+//     "fs-extra": "^10.0.0",
+//     "hbs": "^4.2.0",
+//     "mongodb": "^3.7.3",
+//     "multer": "^1.4.4",
+//     "nodemon": "^2.0.15",
+//     "start": "^5.1.0"
+//   },
+//   "repository": {
+//     "type": "git",
+//     "url": "git+https://github.com/huongpham2001/ASM2-main.git"
+//   },
+//   "bugs": {
+//     "url": "https://github.com/huongpham2001/ASM2-main/issues"
+//   },
+//   "homepage": "https://github.com/huongpham2001/ASM2-main#readme",
+//   "description": ""
+// }
