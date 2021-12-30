@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url =  "mongodb://huong17:phamthilanhuong200@cluster0-shard-00-00.wmaxf.mongodb.net:27017,cluster0-shard-00-01.wmaxf.mongodb.net:27017,cluster0-shard-00-02.wmaxf.mongodb.net:27017/test?replicaSet=atlas-iugmmi-shard-0&ssl=true&authSource=admin";
+const url =  "mongodb://huong17:phamthilanhuong2001@cluster0-shard-00-00.wmaxf.mongodb.net:27017,cluster0-shard-00-01.wmaxf.mongodb.net:27017,cluster0-shard-00-02.wmaxf.mongodb.net:27017/test?replicaSet=atlas-iugmmi-shard-0&ssl=true&authSource=admin";
 const dbName = "Test";
 
 async function getDbo() {
