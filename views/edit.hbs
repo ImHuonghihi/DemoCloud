@@ -20,6 +20,9 @@
         <li><a href="/logout">Logout</a></li>
     </ul>
     <center>
+        {{!-- enctype ="multiart..." là kiểu mã hóa cho phép gửi tệp qua POST
+        nếu không có mã hóa này, các tệp không thể được gửi qua POST.
+        nếu người dùng muốn tải lên tệp qua form, phải sd enctype --}}
         <form class="frm123" action="/doEdit" enctype="multipart/form-data" method="POST">
             <fieldset>
                 <legend> Edit product </legend>

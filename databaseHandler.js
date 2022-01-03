@@ -7,26 +7,34 @@ async function getDbo() {
     const dbo = client.db(dbName);
     return dbo;
 }
+
 async function  searchProduct(condition,collectionName){  
     const dbo = await getDbo();
-    const searchCondition = new RegExp(condition,'i')
+    // new RegExp(condition, "i") = /condition/i
+    const searchCondition = new RegExp(condition, "i") //regexp + i de tim du lieu khong phan biet chu hoa chu thuong
+    //goi ham find sau do convert sang array
     var results = await dbo.collection(collectionName).
                             find({name:searchCondition}).toArray();
+                            
     return results;
 }
+
 async function insertOneIntoCollection(collectionName,documentToInsert){
     const dbo = await getDbo();
     await dbo.collection(collectionName).insertOne(documentToInsert);
 }
+
 async function deleteProduct(collectionName,condition) {
     const dbo = await getDbo();
     await dbo.collection(collectionName).deleteOne(condition);
 }
+
 async function findOneProduct(collectionName, condition) {
     const dbo = await getDbo();
     const productToEdit = await dbo.collection(collectionName).findOne(condition);
     return productToEdit;
 }
+
 async function updateOneProduct(collectionName, condition, newValues) {
     let dbo = await getDbo();
     await dbo.collection(collectionName).updateOne(condition, newValues);
@@ -37,6 +45,7 @@ function find(id) {
     const condition = { "_id": ObjectID(id) };
     return condition;
 }
+
 async function checkUser(nameIn,passwordIn){
     const dbo = await getDbo();
     const results = await dbo.collection("users").
@@ -45,8 +54,18 @@ async function checkUser(nameIn,passwordIn){
         return true;
     else
         return false;
+}
 
+async function checkUserRegister(nameIn){
+    const dbo = await getDbo();
+    const userCheck = await dbo.collection('users').
+                    findOne({$and: [{username:nameIn}]});
+    if(userCheck != null)
+        return true;
+    else 
+        return false;
+    
 }
 
 
-module.exports = {searchProduct,insertOneIntoCollection, deleteProduct, findOneProduct, updateOneProduct, find, checkUser}
+module.exports = {searchProduct,insertOneIntoCollection, deleteProduct, findOneProduct, updateOneProduct, find, checkUser, checkUserRegister}
