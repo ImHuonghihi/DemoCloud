@@ -4,10 +4,6 @@ const hbs = require('hbs')
 const session = require('express-session');
 var app = express();
 
-let otherString = "Abcxyz";
-console.log(otherString.length)
-
-
 app.use(session({
     //setting for session
     resave: true,
@@ -148,6 +144,7 @@ app.post('/insert', upload.single('picture'), async (req, res) => {
     // var color = req.body.color;
     var img = fs.readFileSync(req.file.path);
     var encode_image = img.toString('base64');
+    
     var finalImg = {
         id: req.file.filename,
         contentType: req.file.mimetype,
